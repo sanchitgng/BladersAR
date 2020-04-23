@@ -164,7 +164,7 @@ public class BattleScript : MonoBehaviourPun
 
         if(deathPanel_UI_GameObject == null)
         {
-            deathPanel_UI_GameObject = Instantiate(deathPanel_UI_Prefab);
+            deathPanel_UI_GameObject = Instantiate(deathPanel_UI_Prefab, canvasGameobject.transform);
         }
         else
         {
@@ -197,7 +197,7 @@ public class BattleScript : MonoBehaviourPun
     [PunRPC]
     public void ReBorn()
     {
-        isDead = false;
+       
         spinnerScript.spinSpeed = startSpinSpeed;
         currentSpinSpeed = spinnerScript.spinSpeed;
 
@@ -208,6 +208,8 @@ public class BattleScript : MonoBehaviourPun
         transform.rotation = Quaternion.Euler(Vector3.zero);
 
         ui_3d_Gameobject.SetActive(true);
+
+        isDead = false;
 
     }
 }
